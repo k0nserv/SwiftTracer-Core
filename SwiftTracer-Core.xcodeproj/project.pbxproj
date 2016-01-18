@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D64333F11C4D98BB00C1EE15 /* SwiftTracer-Core.h in Headers */ = {isa = PBXBuildFile; fileRef = D64333F01C4D98BB00C1EE15 /* SwiftTracer-Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D64333F81C4D98BC00C1EE15 /* SwiftTracer-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64333ED1C4D98BB00C1EE15 /* SwiftTracer-Core.framework */; };
+		D64333F81C4D98BC00C1EE15 /* SwiftTracerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64333ED1C4D98BB00C1EE15 /* SwiftTracerCore.framework */; };
 		D64333FD1C4D98BC00C1EE15 /* SwiftTracer_CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64333FC1C4D98BC00C1EE15 /* SwiftTracer_CoreTests.swift */; };
+		D643342D1C4D9AAB00C1EE15 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D643342B1C4D9AAB00C1EE15 /* Info.plist */; };
+		D643342E1C4D9AAB00C1EE15 /* SwiftTracer-Core.h in Headers */ = {isa = PBXBuildFile; fileRef = D643342C1C4D9AAB00C1EE15 /* SwiftTracer-Core.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +24,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D64333ED1C4D98BB00C1EE15 /* SwiftTracer-Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "SwiftTracer-Core.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D64333F01C4D98BB00C1EE15 /* SwiftTracer-Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftTracer-Core.h"; sourceTree = "<group>"; };
-		D64333F21C4D98BB00C1EE15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D64333F71C4D98BC00C1EE15 /* SwiftTracer-CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftTracer-CoreTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D64333ED1C4D98BB00C1EE15 /* SwiftTracerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftTracerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D64333F71C4D98BC00C1EE15 /* SwiftTracerCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTracerCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64333FC1C4D98BC00C1EE15 /* SwiftTracer_CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTracer_CoreTests.swift; sourceTree = "<group>"; };
 		D64333FE1C4D98BC00C1EE15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D643342B1C4D9AAB00C1EE15 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D643342C1C4D9AAB00C1EE15 /* SwiftTracer-Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftTracer-Core.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D64333F81C4D98BC00C1EE15 /* SwiftTracer-Core.framework in Frameworks */,
+				D64333F81C4D98BC00C1EE15 /* SwiftTracerCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +63,8 @@
 		D64333EE1C4D98BB00C1EE15 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D64333ED1C4D98BB00C1EE15 /* SwiftTracer-Core.framework */,
-				D64333F71C4D98BC00C1EE15 /* SwiftTracer-CoreTests.xctest */,
+				D64333ED1C4D98BB00C1EE15 /* SwiftTracerCore.framework */,
+				D64333F71C4D98BC00C1EE15 /* SwiftTracerCoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,8 +72,8 @@
 		D64333EF1C4D98BB00C1EE15 /* SwiftTracer-Core */ = {
 			isa = PBXGroup;
 			children = (
-				D64333F01C4D98BB00C1EE15 /* SwiftTracer-Core.h */,
-				D64333F21C4D98BB00C1EE15 /* Info.plist */,
+				D643342B1C4D9AAB00C1EE15 /* Info.plist */,
+				D643342C1C4D9AAB00C1EE15 /* SwiftTracer-Core.h */,
 			);
 			path = "SwiftTracer-Core";
 			sourceTree = "<group>";
@@ -93,16 +94,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D64333F11C4D98BB00C1EE15 /* SwiftTracer-Core.h in Headers */,
+				D643342E1C4D9AAB00C1EE15 /* SwiftTracer-Core.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D64333EC1C4D98BB00C1EE15 /* SwiftTracer-Core */ = {
+		D64333EC1C4D98BB00C1EE15 /* SwiftTracerCore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D64334011C4D98BC00C1EE15 /* Build configuration list for PBXNativeTarget "SwiftTracer-Core" */;
+			buildConfigurationList = D64334011C4D98BC00C1EE15 /* Build configuration list for PBXNativeTarget "SwiftTracerCore" */;
 			buildPhases = (
 				D64333E81C4D98BB00C1EE15 /* Sources */,
 				D64333E91C4D98BB00C1EE15 /* Frameworks */,
@@ -113,14 +114,14 @@
 			);
 			dependencies = (
 			);
-			name = "SwiftTracer-Core";
+			name = SwiftTracerCore;
 			productName = "SwiftTracer-Core";
-			productReference = D64333ED1C4D98BB00C1EE15 /* SwiftTracer-Core.framework */;
+			productReference = D64333ED1C4D98BB00C1EE15 /* SwiftTracerCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D64333F61C4D98BC00C1EE15 /* SwiftTracer-CoreTests */ = {
+		D64333F61C4D98BC00C1EE15 /* SwiftTracerCoreTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D64334041C4D98BC00C1EE15 /* Build configuration list for PBXNativeTarget "SwiftTracer-CoreTests" */;
+			buildConfigurationList = D64334041C4D98BC00C1EE15 /* Build configuration list for PBXNativeTarget "SwiftTracerCoreTests" */;
 			buildPhases = (
 				D64333F31C4D98BC00C1EE15 /* Sources */,
 				D64333F41C4D98BC00C1EE15 /* Frameworks */,
@@ -131,9 +132,9 @@
 			dependencies = (
 				D64333FA1C4D98BC00C1EE15 /* PBXTargetDependency */,
 			);
-			name = "SwiftTracer-CoreTests";
+			name = SwiftTracerCoreTests;
 			productName = "SwiftTracer-CoreTests";
-			productReference = D64333F71C4D98BC00C1EE15 /* SwiftTracer-CoreTests.xctest */;
+			productReference = D64333F71C4D98BC00C1EE15 /* SwiftTracerCoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -166,8 +167,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D64333EC1C4D98BB00C1EE15 /* SwiftTracer-Core */,
-				D64333F61C4D98BC00C1EE15 /* SwiftTracer-CoreTests */,
+				D64333EC1C4D98BB00C1EE15 /* SwiftTracerCore */,
+				D64333F61C4D98BC00C1EE15 /* SwiftTracerCoreTests */,
 			);
 		};
 /* End PBXProject section */
@@ -177,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D643342D1C4D9AAB00C1EE15 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +212,7 @@
 /* Begin PBXTargetDependency section */
 		D64333FA1C4D98BC00C1EE15 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D64333EC1C4D98BB00C1EE15 /* SwiftTracer-Core */;
+			target = D64333EC1C4D98BB00C1EE15 /* SwiftTracerCore */;
 			targetProxy = D64333F91C4D98BC00C1EE15 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -314,7 +316,7 @@
 				INFOPLIST_FILE = "SwiftTracer-Core/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.hugotunius.SwiftTracer-Core";
+				PRODUCT_BUNDLE_IDENTIFIER = org.hugotunius.SwiftTracerCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -332,7 +334,7 @@
 				INFOPLIST_FILE = "SwiftTracer-Core/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.hugotunius.SwiftTracer-Core";
+				PRODUCT_BUNDLE_IDENTIFIER = org.hugotunius.SwiftTracerCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -372,21 +374,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D64334011C4D98BC00C1EE15 /* Build configuration list for PBXNativeTarget "SwiftTracer-Core" */ = {
+		D64334011C4D98BC00C1EE15 /* Build configuration list for PBXNativeTarget "SwiftTracerCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D64334021C4D98BC00C1EE15 /* Debug */,
 				D64334031C4D98BC00C1EE15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		D64334041C4D98BC00C1EE15 /* Build configuration list for PBXNativeTarget "SwiftTracer-CoreTests" */ = {
+		D64334041C4D98BC00C1EE15 /* Build configuration list for PBXNativeTarget "SwiftTracerCoreTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D64334051C4D98BC00C1EE15 /* Debug */,
 				D64334061C4D98BC00C1EE15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
