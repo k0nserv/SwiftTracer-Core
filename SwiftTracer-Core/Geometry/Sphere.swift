@@ -26,7 +26,7 @@ extension Sphere : Shape {
         let V = ray.origin - center
         let a = ray.direction.dot(V)
         let b = -a
-        let c = pow(a, 2) - pow(V.length(), 2) + radius
+        let c = pow(a, 2) - pow(V.length(), 2) + pow(radius, 2)
 
         if (c < 0) {
             return nil

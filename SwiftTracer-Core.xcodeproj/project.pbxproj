@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D64333F81C4D98BC00C1EE15 /* SwiftTracerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64333ED1C4D98BB00C1EE15 /* SwiftTracerCore.framework */; };
-		D64333FD1C4D98BC00C1EE15 /* SwiftTracer_CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64333FC1C4D98BC00C1EE15 /* SwiftTracer_CoreTests.swift */; };
 		D643342D1C4D9AAB00C1EE15 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D643342B1C4D9AAB00C1EE15 /* Info.plist */; };
 		D643342E1C4D9AAB00C1EE15 /* SwiftTracer-Core.h in Headers */ = {isa = PBXBuildFile; fileRef = D643342C1C4D9AAB00C1EE15 /* SwiftTracer-Core.h */; };
 		D64334401C4D9B9900C1EE15 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64334301C4D9B9900C1EE15 /* Camera.swift */; };
@@ -24,6 +22,10 @@
 		D643344A1C4D9B9900C1EE15 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643343D1C4D9B9900C1EE15 /* Plane.swift */; };
 		D643344B1C4D9B9900C1EE15 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643343E1C4D9B9900C1EE15 /* Shape.swift */; };
 		D643344C1C4D9B9900C1EE15 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643343F1C4D9B9900C1EE15 /* Sphere.swift */; };
+		D64334561C4D9D2900C1EE15 /* SwiftTracerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64333ED1C4D98BB00C1EE15 /* SwiftTracerCore.framework */; };
+		D64334571C4D9D4B00C1EE15 /* VectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643344E1C4D9C7A00C1EE15 /* VectorTests.swift */; };
+		D64334581C4D9D4E00C1EE15 /* SphereTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64334501C4D9C7A00C1EE15 /* SphereTest.swift */; };
+		D64334591C4D9D5200C1EE15 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64334521C4D9C7A00C1EE15 /* ColorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,6 @@
 /* Begin PBXFileReference section */
 		D64333ED1C4D98BB00C1EE15 /* SwiftTracerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftTracerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64333F71C4D98BC00C1EE15 /* SwiftTracerCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTracerCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D64333FC1C4D98BC00C1EE15 /* SwiftTracer_CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTracer_CoreTests.swift; sourceTree = "<group>"; };
 		D64333FE1C4D98BC00C1EE15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D643342B1C4D9AAB00C1EE15 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D643342C1C4D9AAB00C1EE15 /* SwiftTracer-Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftTracer-Core.h"; sourceTree = "<group>"; };
@@ -56,6 +57,9 @@
 		D643343D1C4D9B9900C1EE15 /* Plane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		D643343E1C4D9B9900C1EE15 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		D643343F1C4D9B9900C1EE15 /* Sphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
+		D643344E1C4D9C7A00C1EE15 /* VectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
+		D64334501C4D9C7A00C1EE15 /* SphereTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SphereTest.swift; sourceTree = "<group>"; };
+		D64334521C4D9C7A00C1EE15 /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D64333F81C4D98BC00C1EE15 /* SwiftTracerCore.framework in Frameworks */,
+				D64334561C4D9D2900C1EE15 /* SwiftTracerCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +115,9 @@
 		D64333FB1C4D98BC00C1EE15 /* SwiftTracer-CoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				D64333FC1C4D98BC00C1EE15 /* SwiftTracer_CoreTests.swift */,
+				D643344D1C4D9C7A00C1EE15 /* Math */,
+				D643344F1C4D9C7A00C1EE15 /* Geometry */,
+				D64334511C4D9C7A00C1EE15 /* Misc */,
 				D64333FE1C4D98BC00C1EE15 /* Info.plist */,
 			);
 			path = "SwiftTracer-CoreTests";
@@ -156,6 +162,30 @@
 				D643343F1C4D9B9900C1EE15 /* Sphere.swift */,
 			);
 			path = Geometry;
+			sourceTree = "<group>";
+		};
+		D643344D1C4D9C7A00C1EE15 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				D643344E1C4D9C7A00C1EE15 /* VectorTests.swift */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
+		D643344F1C4D9C7A00C1EE15 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				D64334501C4D9C7A00C1EE15 /* SphereTest.swift */,
+			);
+			path = Geometry;
+			sourceTree = "<group>";
+		};
+		D64334511C4D9C7A00C1EE15 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				D64334521C4D9C7A00C1EE15 /* ColorTests.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,7 +317,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D64333FD1C4D98BC00C1EE15 /* SwiftTracer_CoreTests.swift in Sources */,
+				D64334581C4D9D4E00C1EE15 /* SphereTest.swift in Sources */,
+				D64334591C4D9D5200C1EE15 /* ColorTests.swift in Sources */,
+				D64334571C4D9D4B00C1EE15 /* VectorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
