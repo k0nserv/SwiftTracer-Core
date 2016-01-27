@@ -8,6 +8,12 @@
 
 import Foundation
 
+#if os(Linux)
+  import Glibc
+#else
+  import Darwin.C
+#endif
+
 typealias Color = UInt32
 
 extension Color {

@@ -6,8 +6,6 @@
 //  Copyright © 2016 Hugo Tunius. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-
 //! Project version number for SwiftTracer-Core.
 FOUNDATION_EXPORT double SwiftTracer_CoreVersionNumber;
 

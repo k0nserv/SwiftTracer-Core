@@ -8,6 +8,12 @@
 
 import Foundation
 
+#if os(Linux)
+  import Glibc
+#else
+  import Darwin.C
+#endif
+
 protocol RendererDelegate {
     func didFinishRendering(pixels: [Color], duration: NSTimeInterval)
 }
@@ -55,15 +61,15 @@ struct Renderer {
         startTime = NSDate()
 
 
-        for var y = 0; y < camera.height; ++y {
-            for var x = 0; x < camera.width; ++x {
+        for y in 0..<camera.height {
+            for x in 0..<camera.width {
                 if !isRendering {
                     return
                 }
 
                 var colors: [Color] = Array(count: Int(samplesPerPixel*samplesPerPixel), repeatedValue: scene.clearColor)
-                for var xSample = UInt(0); xSample < samplesPerPixel; ++xSample {
-                    for var ySample = UInt(0); ySample < samplesPerPixel; ++ySample {
+                for xSample in 0..<samplesPerPixel {
+                    for ySample in 0..<samplesPerPixel {
                         let ray = camera.createRay(x: x, y: y, xSample: xSample, ySample: ySample, samplesPerPixel: samplesPerPixel)
                         colors[Int(ySample * samplesPerPixel + xSample)] = traceRay(ray, depth: maxDepth)
                     }

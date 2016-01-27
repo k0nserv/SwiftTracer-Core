@@ -8,6 +8,12 @@
 
 import Foundation
 
+#if os(Linux)
+  import Glibc
+#else
+  import Darwin.C
+#endif
+
 struct Vector : Equatable  {
     let x: Double
     let y: Double
