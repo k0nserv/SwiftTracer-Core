@@ -14,12 +14,12 @@ import Foundation
   import Darwin.C
 #endif
 
-class Sphere {
-    let radius: Double
-    let center: Vector
-    let material: Material
+public class Sphere {
+    public let radius: Double
+    public let center: Vector
+    public let material: Material
 
-    init(radius: Double, center: Vector, material: Material) {
+    public init(radius: Double, center: Vector, material: Material) {
         self.radius = radius
         self.center = center
         self.material = material
@@ -27,7 +27,7 @@ class Sphere {
 }
 
 extension Sphere : Shape {
-    func intersectWithRay(ray: Ray) -> Intersection? {
+    public func intersectWithRay(ray: Ray) -> Intersection? {
         let V = ray.origin - center
         let a = ray.direction.dot(V)
         let b = -a

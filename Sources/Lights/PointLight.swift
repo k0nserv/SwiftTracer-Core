@@ -6,12 +6,12 @@
 //  Copyright © 2015 Hugo Tunius. All rights reserved.
 //
 
-class PointLight {
-    let color: Color
-    let position: Vector
-    let intensity: Double
+public class PointLight {
+    public let color: Color
+    public let position: Vector
+    public let intensity: Double
 
-    init(color: Color, position: Vector, intensity: Double) {
+    public init(color: Color, position: Vector, intensity: Double) {
         self.color = color
         self.position = position
         self.intensity = intensity

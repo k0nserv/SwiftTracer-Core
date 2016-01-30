@@ -14,25 +14,25 @@ import Foundation
   import Darwin.C
 #endif
 
-protocol RendererDelegate {
+public protocol RendererDelegate {
     func didFinishRendering(pixels: [Color], duration: NSTimeInterval)
 }
 
-enum SuperSampling {
+public enum SuperSampling {
     case Off
     // Number of samples per dimensions
     // Example: On(4) is 4x4, 4 samples for x and 4 for y
     case On(UInt)
 }
 
-struct Renderer {
+public struct Renderer {
     private static let epsilon: Double = 1e-12
-    let scene: Scene
-    let maxDepth: Int
-    var camera: Camera
-    var pixels: [Color]
-    var delegate: RendererDelegate?
-    var superSampling: SuperSampling {
+    public let scene: Scene
+    public let maxDepth: Int
+    public var camera: Camera
+    public var pixels: [Color]
+    public var delegate: RendererDelegate?
+    public var superSampling: SuperSampling {
         didSet {
             switch superSampling {
             case .Off:
@@ -42,11 +42,11 @@ struct Renderer {
             }
         }
     }
-    var startTime: NSDate = NSDate()
+    private var startTime: NSDate = NSDate()
     private var samplesPerPixel: UInt
     private var isRendering = false
 
-    init(scene: Scene, camera: Camera, maxDepth: Int) {
+    public init(scene: Scene, camera: Camera, maxDepth: Int) {
         self.scene = scene
         self.camera = camera
         self.pixels = []
@@ -55,7 +55,7 @@ struct Renderer {
         self.samplesPerPixel = 1
     }
 
-    mutating func render() {
+    public mutating func render() {
         isRendering = true
         var result: [Color] = Array(count: camera.width * camera.height, repeatedValue: scene.clearColor)
         startTime = NSDate()
@@ -110,7 +110,7 @@ struct Renderer {
         isRendering = false
     }
 
-    mutating func abortRendering() {
+    public mutating func abortRendering() {
         isRendering = false
     }
 
