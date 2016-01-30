@@ -21,19 +21,25 @@ extension Color {
 
     var r: UInt8 {
         get {
-            return UInt8((self & 0x000000FF) >> 0x00000000)
+            return UInt8((self & 0x000000FF) >> 0)
         }
     }
 
     var g: UInt8 {
         get {
-            return UInt8((self & 0x0000FF00) >> 0x00000008)
+            return UInt8((self & 0x0000FF00) >> 8)
         }
     }
 
     var b: UInt8 {
         get {
-            return UInt8((self & 0x00FF0000) >> 0x00000010)
+            return UInt8((self & 0x00FF0000) >> 16)
+        }
+    }
+
+    var a: UInt8 {
+        get {
+            return UInt8((self & 0xFF000000) >> 24)
         }
     }
 
@@ -58,9 +64,9 @@ extension Color {
 
     init(r: UInt8, g: UInt8, b: UInt8) {
         self = 0xFF000000
-        self = self | UInt32(r) << 0x00000000
-        self = self | UInt32(g) << 0x00000008
-        self = self | UInt32(b) << 0x00000010
+        self = self | UInt32(r) << 0
+        self = self | UInt32(g) << 8
+        self = self | UInt32(b) << 16
     }
 
     init(r: Double, g: Double, b: Double) {
