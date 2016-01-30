@@ -9,12 +9,12 @@
 import Foundation
 
 
-class Plane {
-    let position: Vector
-    let normal: Vector
-    let material: Material
+public class Plane {
+    public let position: Vector
+    public let normal: Vector
+    public let material: Material
 
-    init(position: Vector, normal: Vector, material: Material) {
+    public init(position: Vector, normal: Vector, material: Material) {
         self.position = position
         self.normal = normal
         self.material = material
@@ -22,7 +22,7 @@ class Plane {
 }
 
 extension Plane : Shape {
-    func intersectWithRay(ray: Ray) -> Intersection? {
+    public func intersectWithRay(ray: Ray) -> Intersection? {
         let denominator = normal.dot(ray.direction)
         if abs(denominator) < 1e-5 {
             return nil

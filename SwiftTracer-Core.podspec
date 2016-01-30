@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'SwiftTracer-Core'
-  spec.version      = '0.0.1'
+  spec.version      = '0.0.2'
   spec.license      = { type: 'MIT' }
   spec.homepage     = 'https://github.com/k0nserv/SwiftTracer-Core'
   spec.authors      = { 'Hugo Tunius' => 'h@tunius.se' }

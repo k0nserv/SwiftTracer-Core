@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Box {
-    let material: Material
-    let min: Vector
-    let max: Vector
+public class Box {
+    public let material: Material
+    public let min: Vector
+    public let max: Vector
 
-    init(min: Vector, max: Vector, material: Material) {
+    public init(min: Vector, max: Vector, material: Material) {
         self.min = min
         self.max = max
         self.material = material
@@ -21,7 +21,7 @@ class Box {
 }
 
 extension Box: Shape {
-    func intersectWithRay(ray: Ray) -> Intersection? {
+    public func intersectWithRay(ray: Ray) -> Intersection? {
         var tmin, tmax, tymin, tymax, tzmin, tzmax: Double
 
         if ray.direction.x >= 0 {

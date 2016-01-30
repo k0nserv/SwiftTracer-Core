@@ -6,19 +6,19 @@
 //  Copyright © 2015 Hugo Tunius. All rights reserved.
 //
 
-class Scene {
-    let objects: [Shape]
-    let lights: [PointLight]
-    let clearColor: Color
+public class Scene {
+    public let objects: [Shape]
+    public let lights: [PointLight]
+    public let clearColor: Color
 
-    init(objects: [Shape], lights: [PointLight], clearColor: Color) {
+    public init(objects: [Shape], lights: [PointLight], clearColor: Color) {
         self.objects = objects
         self.lights = lights
         self.clearColor = clearColor
     }
 
 
-    func intersect(ray: Ray) -> Intersection? {
+    public func intersect(ray: Ray) -> Intersection? {
         var closestHit: Intersection?
 
         for object: Shape in objects {

@@ -12,62 +12,62 @@
   import Darwin.C
 #endif
 
-typealias Color = UInt32
+public typealias Color = UInt32
 
-extension Color {
-    static let Black = Color(r: 0.0, g: 0.0, b: 0.0)
+public extension Color {
+    public static let Black = Color(r: 0.0, g: 0.0, b: 0.0)
 
-    var r: UInt8 {
+    public var r: UInt8 {
         get {
             return UInt8((self & 0x000000FF) >> 0)
         }
     }
 
-    var g: UInt8 {
+    public var g: UInt8 {
         get {
             return UInt8((self & 0x0000FF00) >> 8)
         }
     }
 
-    var b: UInt8 {
+    public var b: UInt8 {
         get {
             return UInt8((self & 0x00FF0000) >> 16)
         }
     }
 
-    var a: UInt8 {
+    public var a: UInt8 {
         get {
             return UInt8((self & 0xFF000000) >> 24)
         }
     }
 
-    var rd: Double {
+    public var rd: Double {
         get {
             return Double(r) / 255.0
         }
     }
 
-    var gd: Double {
+    public var gd: Double {
         get {
             return Double(g) / 255.0
         }
     }
 
-    var bd: Double {
+    public var bd: Double {
         get {
             return Double(b) / 255.0
         }
     }
 
 
-    init(r: UInt8, g: UInt8, b: UInt8) {
+    public init(r: UInt8, g: UInt8, b: UInt8) {
         self = 0xFF000000
         self = self | UInt32(r) << 0
         self = self | UInt32(g) << 8
         self = self | UInt32(b) << 16
     }
 
-    init(r: Double, g: Double, b: Double) {
+    public init(r: Double, g: Double, b: Double) {
         let rNormalized = Color.clampValue(Int32(255.0 * r))
         let gNormalized = Color.clampValue(Int32(255.0 * g))
         let bNormalized = Color.clampValue(Int32(255.0 * b))
@@ -77,11 +77,11 @@ extension Color {
                   b: bNormalized)
     }
 
-    init(_ color: UInt32) {
+    public init(_ color: UInt32) {
         self = color
     }
 
-    internal static func clampValue(value: Int32) -> UInt8 {
+    private static func clampValue(value: Int32) -> UInt8 {
         if value < 0 {
             return 0
         }
@@ -95,21 +95,21 @@ extension Color {
 }
 
 
-func *(left: Color, right: Double) -> Color {
+public func *(left: Color, right: Double) -> Color {
     return Color(r: Color.clampValue(Int32(Double(left.r) * right)),
         g: Color.clampValue(Int32(Double(left.g) * right)),
         b: Color.clampValue(Int32(Double(left.b) * right)))
 }
 
-func *(left: Color, right: Color) -> Color {
+public func *(left: Color, right: Color) -> Color {
     return Color(r: left.rd * right.rd, g: left.gd * right.gd, b: left.bd * right.bd)
 }
 
-func +(left: Color, right: Color) -> Color {
+public func +(left: Color, right: Color) -> Color {
     return Color(r: Color.clampValue(Int32(left.r) + Int32(right.r)), g: Color.clampValue(Int32(left.g) + Int32(right.g)) , b: Color.clampValue(Int32(left.b) + Int32(right.b)))
 }
 
 
-func -(left: Color, right: Color) -> Color {
+public func -(left: Color, right: Color) -> Color {
     return Color(r: Color.clampValue(Int32(left.r) - Int32(right.r)), g: Color.clampValue(Int32(left.g) - Int32(right.g)) , b: Color.clampValue(Int32(left.b) - Int32(right.b)))
 }

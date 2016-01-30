@@ -6,14 +6,14 @@
 //  Copyright © 2015 Hugo Tunius. All rights reserved.
 //
 
-class Intersection {
-    let t: Double
-    let point: Vector
-    let normal: Vector
-    let shape: Shape
+public class Intersection {
+    public let t: Double
+    public let point: Vector
+    public let normal: Vector
+    public let shape: Shape
     // Wether or not the hit is
     // from inside the shape itself
-    let inside: Bool
+    public let inside: Bool
 
     convenience init (t: Double, point: Vector, normal: Vector, shape: Shape) {
         self.init(t: t, point: point, normal: normal, shape: shape, inside: false)
