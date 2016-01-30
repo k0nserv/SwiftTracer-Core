@@ -22,10 +22,10 @@
 		D64334791C4DA36B00C1EE15 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64334681C4DA36B00C1EE15 /* Scene.swift */; };
 		D643347A1C4DA36B00C1EE15 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643346A1C4DA36B00C1EE15 /* Vector.swift */; };
 		D643347B1C4DA36B00C1EE15 /* PointLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643346C1C4DA36B00C1EE15 /* PointLight.swift */; };
-		D64334871C4DA3BB00C1EE15 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D643345F1C4DA36B00C1EE15 /* Info.plist */; };
 		D64334881C4DA3D600C1EE15 /* VectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64334811C4DA39C00C1EE15 /* VectorTests.swift */; };
 		D64334891C4DA3D900C1EE15 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643347F1C4DA39C00C1EE15 /* ColorTests.swift */; };
 		D643348A1C4DA3DF00C1EE15 /* SphereTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643347D1C4DA39C00C1EE15 /* SphereTest.swift */; };
+		D68E881F1C5D5D55003D7464 /* PlaneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68E881E1C5D5D55003D7464 /* PlaneTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +60,7 @@
 		D643347F1C4DA39C00C1EE15 /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		D64334811C4DA39C00C1EE15 /* VectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorTests.swift; sourceTree = "<group>"; };
 		D64334821C4DA39C00C1EE15 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/SwiftTracerCore/Info.plist; sourceTree = SOURCE_ROOT; };
+		D68E881E1C5D5D55003D7464 /* PlaneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaneTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				D643347D1C4DA39C00C1EE15 /* SphereTest.swift */,
+				D68E881E1C5D5D55003D7464 /* PlaneTests.swift */,
 			);
 			name = Geometry;
 			path = Tests/SwiftTracerCore/Geometry;
@@ -286,7 +288,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D64334871C4DA3BB00C1EE15 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +327,7 @@
 			files = (
 				D64334881C4DA3D600C1EE15 /* VectorTests.swift in Sources */,
 				D643348A1C4DA3DF00C1EE15 /* SphereTest.swift in Sources */,
+				D68E881F1C5D5D55003D7464 /* PlaneTests.swift in Sources */,
 				D64334891C4DA3D900C1EE15 /* ColorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

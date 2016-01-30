@@ -19,7 +19,6 @@ struct Vector : Equatable  {
     let y: Double
     let z: Double
 
-
     func dot(other: Vector) -> Double {
         return x * other.x + y * other.y + z * other.z
     }

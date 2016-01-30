@@ -10,19 +10,8 @@ import XCTest
 @testable import SwiftTracerCore
 
 class VectorTests: XCTestCase {
-
     let v1 = Vector(x: 1.0, y: 2.5, z: 8.1)
     let v2 = Vector(x: 8.9, y: 1.2, z: 0.9)
-
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
 
     func testDotProduct() {
         let dot = v1.dot(v2)

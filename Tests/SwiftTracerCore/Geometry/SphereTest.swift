@@ -6,7 +6,6 @@
 //  Copyright © 2015 Hugo Tunius. All rights reserved.
 //
 
-import Foundation
 import XCTest
 @testable import SwiftTracerCore
 
@@ -17,18 +16,31 @@ class SphereTests: XCTestCase {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: -5.0), direction: Vector(x: 1.0, y: 0.0, z: 0.0))
 
         let intersection = sphere.intersectWithRay(ray)
-        XCTAssertTrue(intersection == nil)
+        XCTAssertNil(intersection)
     }
 
     func testHit() {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: -5.0), direction: Vector(x: 0.0, y: 0.0, z: 1.0))
         let intersection = sphere.intersectWithRay(ray)
 
-        XCTAssertTrue(intersection != nil)
+        XCTAssertNotNil(intersection)
         let i = intersection!
-        XCTAssertEqualWithAccuracy(i.t, 3.0, accuracy: 0.001)
+        XCTAssertEqualWithAccuracy(i.t, 3.0, accuracy: 0.0001)
         XCTAssertTrue(i.point.fuzzyEquals(Vector(x: 0.0, y: 0.0, z: -2.0)))
         XCTAssertTrue(i.normal.fuzzyEquals(Vector(x: 0.0, y: 0.0, z: -1.0)))
+        XCTAssertFalse(i.inside)
+    }
+
+    func testHitFromInside() {
+        let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: 0.0), direction: Vector(x: 0.0, y: 0.0, z: 1.0))
+        let intersection = sphere.intersectWithRay(ray)
+
+        XCTAssertNotNil(intersection)
+        let i = intersection!
+        XCTAssertEqualWithAccuracy(i.t, 2.0, accuracy: 0.0001)
+        XCTAssertTrue(i.point.fuzzyEquals(Vector(x: 0.0, y: 0.0, z: 2.0)))
+        XCTAssertTrue(i.normal.fuzzyEquals(Vector(x: 0.0, y: 0.0, z: 1.0)))
+        XCTAssertTrue(i.inside)
     }
 }
 
