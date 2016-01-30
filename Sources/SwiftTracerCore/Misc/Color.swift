@@ -6,8 +6,6 @@
 //  Copyright © 2015 Hugo Tunius. All rights reserved.
 //
 
-import Foundation
-
 #if os(Linux)
   import Glibc
 #else

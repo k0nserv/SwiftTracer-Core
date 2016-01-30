@@ -6,8 +6,6 @@
 //  Copyright © 2015 Hugo Tunius. All rights reserved.
 //
 
-import Foundation
-
 struct Ray {
     let origin: Vector
     let direction: Vector

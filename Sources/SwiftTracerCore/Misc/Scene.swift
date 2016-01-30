@@ -6,9 +6,6 @@
 //  Copyright © 2015 Hugo Tunius. All rights reserved.
 //
 
-import Foundation
-
-
 class Scene {
     let objects: [Shape]
     let lights: [PointLight]

@@ -6,8 +6,6 @@
 //  Copyright © 2015 Hugo Tunius. All rights reserved.
 //
 
-import Foundation
-
 class Material {
     var color: Color = Color.Black
     var ambientCoefficient: Double = 0.2
