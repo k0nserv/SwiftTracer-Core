@@ -9,7 +9,7 @@ OS independant ray tracing engine in Swift.
 
 ## Usage
 
-Create a `Scene` and a ´Camera` and pass it to the `Renderer`.
+Create a `Scene` and a `Camera` and pass it to the `Renderer`.
 Call `render` to start the rendering.
 
 ```swift
