@@ -7,10 +7,9 @@
 //
 
 public class Material {
-    public var color: Color = Color.Black
-    public var ambientCoefficient: Double = 0.2
-    public var diffuseCoefficient: Double = 0.2
-    public var specularCoefficient: Double = 0.0
+    public var ambientColor: Color = Color.Black
+    public var diffuseColor: Color = Color.Black
+    public var specularColor: Color = Color.Black
 
     public var reflectionCoefficient: Double = 0.0
     public var isReflective: Bool {
@@ -21,20 +20,27 @@ public class Material {
 
     public var refractionCoefficient: Double?
 
-    public convenience init(color: Color, ambientCoefficient: Double, diffuseCoefficient: Double) {
-        self.init(color: color, ambientCoefficient: ambientCoefficient, diffuseCoefficient: diffuseCoefficient, specularCoefficient: 0.0, reflectionCoefficient: 0.0, refractionCoefficient: nil)
+    public convenience init(ambientColor: Color, diffuseColor: Color) {
+        self.init(ambientColor: ambientColor,
+                  diffuseColor: diffuseColor,
+                  specularColor: Color.Black,
+                  reflectionCoefficient: 0.0,
+                  refractionCoefficient: nil)
     }
 
-    public init(color: Color, ambientCoefficient: Double, diffuseCoefficient: Double, specularCoefficient: Double, reflectionCoefficient: Double, refractionCoefficient: Double?) {
-        self.color = color
-        self.ambientCoefficient = ambientCoefficient
-        self.diffuseCoefficient = diffuseCoefficient
-        self.specularCoefficient = specularCoefficient
+    public init(ambientColor: Color, diffuseColor: Color, specularColor: Color, reflectionCoefficient: Double, refractionCoefficient: Double?) {
+        self.ambientColor = ambientColor
+        self.diffuseColor = diffuseColor
+        self.specularColor = specularColor
         self.reflectionCoefficient = reflectionCoefficient
         self.refractionCoefficient = refractionCoefficient
     }
 
     public func copy() -> Material {
-        return Material(color: color, ambientCoefficient: ambientCoefficient, diffuseCoefficient: diffuseCoefficient, specularCoefficient: specularCoefficient, reflectionCoefficient: reflectionCoefficient, refractionCoefficient: refractionCoefficient)
+        return Material(ambientColor: ambientColor,
+                        diffuseColor: diffuseColor, 
+                        specularColor: specularColor, 
+                        reflectionCoefficient: reflectionCoefficient, 
+                        refractionCoefficient: refractionCoefficient)
     }
 }
