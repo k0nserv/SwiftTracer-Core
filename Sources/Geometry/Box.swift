@@ -21,7 +21,7 @@ public class Box {
 }
 
 extension Box: Shape {
-    public func intersectWithRay(ray: Ray) -> Intersection? {
+    public func intersect(ray: Ray) -> Intersection? {
         var tmin, tmax, tymin, tymax, tzmin, tzmax: Double
 
         if ray.direction.x >= 0 {

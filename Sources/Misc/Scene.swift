@@ -22,7 +22,7 @@ public class Scene {
         var closestHit: Intersection?
 
         for object: Shape in objects {
-            if let hit = object.intersectWithRay(ray) {
+            if let hit = object.intersect(ray: ray) {
                 if  let previousHit = closestHit where hit.t < previousHit.t  {
                     closestHit = hit
                 } else if closestHit == nil {

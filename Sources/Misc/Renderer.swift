@@ -15,14 +15,14 @@ import Foundation
 #endif
 
 public protocol RendererDelegate {
-    func didFinishRendering(pixels: [Color], duration: NSTimeInterval)
+    func didFinishRendering(pixels: [Color], duration: TimeInterval)
 }
 
 public enum SuperSampling {
-    case Off
+    case off
     // Number of samples per dimensions
     // Example: On(4) is 4x4, 4 samples for x and 4 for y
-    case On(UInt)
+    case on(UInt)
 }
 
 public struct Renderer {
@@ -35,14 +35,14 @@ public struct Renderer {
     public var superSampling: SuperSampling {
         didSet {
             switch superSampling {
-            case .Off:
+            case .off:
                 samplesPerPixel = 1
-            case .On(let samplesPerPixel):
+            case .on(let samplesPerPixel):
                 self.samplesPerPixel = samplesPerPixel
             }
         }
     }
-    private var startTime: NSDate = NSDate()
+    private var startTime: Date = Date()
     private var samplesPerPixel: UInt
     private var isRendering = false
 
@@ -51,14 +51,14 @@ public struct Renderer {
         self.camera = camera
         self.pixels = []
         self.maxDepth = maxDepth
-        self.superSampling = .Off
+        self.superSampling = .off
         self.samplesPerPixel = 1
     }
 
     public mutating func render() {
         isRendering = true
-        var result: [Color] = Array(count: camera.width * camera.height, repeatedValue: scene.clearColor)
-        startTime = NSDate()
+        var result: [Color] = Array(repeating: scene.clearColor, count: camera.width * camera.height)
+        startTime = Date()
 
 
         for y in 0..<camera.height {
@@ -67,11 +67,11 @@ public struct Renderer {
                     return
                 }
 
-                var colors: [Color] = Array(count: Int(samplesPerPixel*samplesPerPixel), repeatedValue: scene.clearColor)
+                var colors: [Color] = Array(repeating: scene.clearColor, count: Int(samplesPerPixel*samplesPerPixel))
                 for xSample in 0..<samplesPerPixel {
                     for ySample in 0..<samplesPerPixel {
                         let ray = camera.createRay(x: x, y: y, xSample: xSample, ySample: ySample, samplesPerPixel: samplesPerPixel)
-                        colors[Int(ySample * samplesPerPixel + xSample)] = traceRay(ray, depth: maxDepth)
+                        colors[Int(ySample * samplesPerPixel + xSample)] = trace(ray: ray, depth: maxDepth)
                     }
                 }
 
@@ -104,8 +104,8 @@ public struct Renderer {
         pixels = result
 
         if let d = delegate {
-            let duration = NSDate().timeIntervalSinceDate(startTime)
-            d.didFinishRendering(pixels, duration: duration)
+            let duration = Date().timeIntervalSince(startTime)
+            d.didFinishRendering(pixels: pixels, duration: duration)
         }
         isRendering = false
     }
@@ -114,22 +114,22 @@ public struct Renderer {
         isRendering = false
     }
 
-    private mutating func traceRay(ray: Ray, depth: Int) -> Color {
+    private mutating func trace(ray: Ray, depth: Int) -> Color {
         if depth == 0 {
             return Color.Black
         }
 
         var result = scene.clearColor
-        let closestHit = scene.intersect(ray)
+        let closestHit = scene.intersect(ray: ray)
 
         if let hit = closestHit {
-            result = shade(hit, originalRay: ray)
+            result = shade(atIntersection: hit, originalRay: ray)
             if hit.shape.material.isReflective {
-                result = result + calculateReflection(hit, originalRay: ray, currentDepth: depth)
+                result = result + calculateReflection(atIntersection: hit, originalRay: ray, currentDepth: depth)
             }
 
             if let refractionCoefficient = hit.shape.material.refractionCoefficient {
-                result = result + calculateRefraction(refractionCoefficient, hit: hit, originalRay: ray, currentDepth: depth)
+                result = result + calculateRefraction(atIntersection: hit,refractionCoefficient:  refractionCoefficient, originalRay: ray, currentDepth: depth)
             }
         }
 
@@ -137,7 +137,7 @@ public struct Renderer {
         return result
     }
 
-    private func shade(intersection: Intersection, originalRay: Ray) -> Color {
+    private func shade(atIntersection intersection: Intersection, originalRay: Ray) -> Color {
         let material = intersection.shape.material
         var result = material.ambientColor
 
@@ -149,7 +149,7 @@ public struct Renderer {
                        direction: lightDirection)
 
             for object in scene.objects {
-                if let hit = object.intersectWithRay(ray) where hit.t < distanceToLight {
+                if let hit = object.intersect(ray: ray) where hit.t < distanceToLight {
                     inShadow = true
                     break
                 }
@@ -170,15 +170,15 @@ public struct Renderer {
         return result
     }
 
-    private mutating func calculateReflection(hit: Intersection, originalRay: Ray, currentDepth: Int) -> Color {
+    private mutating func calculateReflection(atIntersection hit: Intersection, originalRay: Ray, currentDepth: Int) -> Color {
         let newDirection = originalRay.direction.reflect(hit.normal).normalize()
         let newRay = Ray(origin: hit.point + hit.point * newDirection * Renderer.epsilon,
             direction: newDirection)
-        let reflectiveColor = traceRay(newRay, depth: currentDepth - 1)
+        let reflectiveColor = trace(ray: newRay, depth: currentDepth - 1)
         return reflectiveColor * hit.shape.material.reflectionCoefficient
     }
 
-    private mutating func calculateRefraction(refractionCoefficient: Double, hit: Intersection, originalRay: Ray, currentDepth: Int) -> Color {
+    private mutating func calculateRefraction(atIntersection hit: Intersection, refractionCoefficient: Double, originalRay: Ray, currentDepth: Int) -> Color {
         var rCoeff = refractionCoefficient
         if hit.inside { // Leaving refractive material
             rCoeff = 1.0
@@ -195,7 +195,7 @@ public struct Renderer {
             let newRay = Ray(origin: hit.point + hit.point * T * Renderer.epsilon,
                 direction: T,
                 mediumRefractionIndex: rCoeff)
-            let refractionColor = traceRay(newRay, depth: currentDepth - 1)
+            let refractionColor = trace(ray: newRay, depth: currentDepth - 1)
             let absorbance = hit.shape.material.ambientColor * 0.15 * -hit.t
             let transparency = Color(r: exp(absorbance.rd), g: exp(absorbance.gd), b: exp(absorbance.bd))
             return refractionColor * transparency

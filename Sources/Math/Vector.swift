@@ -23,11 +23,11 @@ public struct Vector : Equatable  {
         self.z = z
     }
 
-    public func dot(other: Vector) -> Double {
+    public func dot(_ other: Vector) -> Double {
         return x * other.x + y * other.y + z * other.z
     }
 
-    public func cross(other: Vector) -> Vector {
+    public func cross(_ other: Vector) -> Vector {
         let x0 = y * other.z - z * other.y
         let y0 = z * other.x - x * other.z
         let z0 = x * other.y - y * other.x
@@ -47,11 +47,11 @@ public struct Vector : Equatable  {
         return Vector(x: (x / l), y: (y / l), z: (z / l))
     }
 
-    public func reflect(normal: Vector) -> Vector {
+    public func reflect(_ normal: Vector) -> Vector {
         return self - normal * 2 * self.dot(normal)
     }
 
-    func fuzzyEquals(other: Vector) -> Bool {
+    func fuzzyEquals(_ other: Vector) -> Bool {
         var result = true
 
         result = result && abs(x - other.x) < 0.001
@@ -95,7 +95,7 @@ public func *(left: Vector, right: Double) -> Vector {
 }
 
 
-private func newVector(left left: Vector, right: Vector, closure: (Double, Double) -> Double) -> Vector {
+private func newVector(left: Vector, right: Vector, closure: (Double, Double) -> Double) -> Vector {
     return Vector(x: closure(left.x, right.x), y: closure(left.y, right.y), z: closure(left.z, right.z))
 }
 

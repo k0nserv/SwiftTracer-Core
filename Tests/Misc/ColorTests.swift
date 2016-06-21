@@ -10,11 +10,11 @@ import XCTest
 @testable import SwiftTracerCore
 
 class ColorTests: XCTestCase {
-    let c = Color(r: UInt8(230), g: UInt8(190), b: UInt8(25))
-    let a = Color(r: 1.2, g: 0.5, b: -0.5)
+    let c = SwiftTracerCore.Color(r: UInt8(230), g: UInt8(190), b: UInt8(25))
+    let a = SwiftTracerCore.Color(r: 1.2, g: 0.5, b: -0.5)
 
     func testInit() {
-        XCTAssertEqual(c, Color(0xFF19BEE6))
+        XCTAssertEqual(c, SwiftTracerCore.Color(0xFF19BEE6))
     }
 
     func testDoubleInit() {

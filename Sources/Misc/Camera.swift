@@ -31,7 +31,7 @@ public struct Camera {
         self.y0 = sin(verticalFov * 0.5)
     }
 
-    func createRay(x x: Int, y: Int, xSample: UInt, ySample: UInt, samplesPerPixel: UInt) -> Ray {
+    func createRay(x: Int, y: Int, xSample: UInt, ySample: UInt, samplesPerPixel: UInt) -> Ray {
         let sampleWidth = Double(width * Int(samplesPerPixel))
         let sampleHeight = Double(height * Int(samplesPerPixel))
         let px = (Double(x * Int(samplesPerPixel) + Int(xSample)) * 2) / sampleWidth - 1
@@ -41,11 +41,11 @@ public struct Camera {
         return Ray(origin: Vector(x: 0, y: 0, z: 0), direction: direction.normalize())
     }
 
-    public func createRay(x x: Int, y: Int) -> Ray{
+    public func createRay(x: Int, y: Int) -> Ray{
         return createRay(x: x, y: y, xSample: 0, ySample: 0, samplesPerPixel: 1)
     }
 
-    public func cameraWithNewResolution(newWidth newWidth: Int, newHeight: Int) -> Camera {
+    public func cameraWithNewResolution(newWidth: Int, newHeight: Int) -> Camera {
         return Camera(fov: self.fov, width: newWidth, height: newHeight)
     }
 }

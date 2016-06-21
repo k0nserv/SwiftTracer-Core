@@ -11,5 +11,5 @@ import Foundation
 
 public protocol Shape {
     var material: Material { get }
-    func intersectWithRay(ray: Ray) -> Intersection?
+    func intersect(ray: Ray) -> Intersection?
 }

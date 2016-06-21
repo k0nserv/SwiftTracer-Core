@@ -22,7 +22,7 @@ public class Plane {
 }
 
 extension Plane : Shape {
-    public func intersectWithRay(ray: Ray) -> Intersection? {
+    public func intersect(ray: Ray) -> Intersection? {
         let denominator = normal.dot(ray.direction)
         if abs(denominator) < 1e-5 {
             return nil
