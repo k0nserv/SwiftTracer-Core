@@ -6,7 +6,7 @@
 //  Copyright © 2015 Hugo Tunius. All rights reserved.
 //
 
-public class Intersection {
+public struct Intersection {
     public let t: Double
     public let point: Vector
     public let normal: Vector
@@ -15,7 +15,7 @@ public class Intersection {
     // from inside the shape itself
     public let inside: Bool
 
-    convenience init (t: Double, point: Vector, normal: Vector, shape: Shape) {
+    init (t: Double, point: Vector, normal: Vector, shape: Shape) {
         self.init(t: t, point: point, normal: normal, shape: shape, inside: false)
     }
 
