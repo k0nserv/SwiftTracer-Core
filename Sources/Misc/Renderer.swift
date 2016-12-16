@@ -116,7 +116,7 @@ public struct Renderer {
 
     private mutating func trace(ray: Ray, depth: Int) -> Color {
         if depth == 0 {
-            return Color.Black
+            return Color.black
         }
 
         var result = scene.clearColor
@@ -201,6 +201,6 @@ public struct Renderer {
             return refractionColor * transparency
         }
 
-        return Color.Black
+        return Color.black
     }
 }

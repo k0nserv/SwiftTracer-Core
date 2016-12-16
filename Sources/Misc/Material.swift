@@ -7,9 +7,9 @@
 //
 
 public class Material {
-    public var ambientColor: Color = Color.Black
-    public var diffuseColor: Color = Color.Black
-    public var specularColor: Color = Color.Black
+    public var ambientColor: Color = Color.black
+    public var diffuseColor: Color = Color.black
+    public var specularColor: Color = Color.black
 
     public var reflectionCoefficient: Double = 0.0
     public var isReflective: Bool {
@@ -23,7 +23,7 @@ public class Material {
     public convenience init(ambientColor: Color, diffuseColor: Color) {
         self.init(ambientColor: ambientColor,
                   diffuseColor: diffuseColor,
-                  specularColor: Color.Black,
+                  specularColor: Color.black,
                   reflectionCoefficient: 0.0,
                   refractionCoefficient: nil)
     }

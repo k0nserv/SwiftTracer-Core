@@ -6,17 +6,11 @@
 //  Copyright © 2015 Hugo Tunius. All rights reserved.
 //
 
-#if os(Linux)
-  import Glibc
-#else
-  import Darwin.C
-#endif
-
 public typealias Color = UInt32
 
 public extension Color {
-    public static let Black = Color(r: 0.0, g: 0.0, b: 0.0)
-    public static let White = Color(r: 1.0, g: 1.0, b: 1.0)
+    public static let black = Color(r: 0.0, g: 0.0, b: 0.0)
+    public static let white = Color(r: 1.0, g: 1.0, b: 1.0)
 
     public var r: UInt8 {
         get {
@@ -87,8 +81,8 @@ public extension Color {
             return 0
         }
 
-        if value > UINT8_MAX {
-            return UInt8(UINT8_MAX)
+        if value > Int32(UInt8.max) {
+            return UInt8.max
         }
 
         return UInt8(value)
