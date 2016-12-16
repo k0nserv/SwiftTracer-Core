@@ -10,18 +10,22 @@ import XCTest
 @testable import SwiftTracerCore
 
 class SphereTests: XCTestCase {
-    let sphere = Sphere(radius: 2.0, center: Vector(x: 0.0, y: 0.0, z: 0.0), material: Material(color: SwiftTracerCore.Color(r: 0.0, g: 0.0, b: 0.0), ambientCoefficient: 0.0, diffuseCoefficient: 0.0))
+    let sphere = Sphere(
+        radius: 2.0,
+        center: Vector(x: 0.0, y: 0.0, z: 0.0),
+        material: Material(ambientColor: Color.black, diffuseColor: Color.black)
+    )
 
     func testMiss() {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: -5.0), direction: Vector(x: 1.0, y: 0.0, z: 0.0))
 
-        let intersection = sphere.intersectWithRay(ray)
+        let intersection = sphere.intersect(ray: ray)
         XCTAssertNil(intersection)
     }
 
     func testHit() {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: -5.0), direction: Vector(x: 0.0, y: 0.0, z: 1.0))
-        let intersection = sphere.intersectWithRay(ray)
+        let intersection = sphere.intersect(ray: ray)
 
         XCTAssertNotNil(intersection)
         let i = intersection!
@@ -33,7 +37,7 @@ class SphereTests: XCTestCase {
 
     func testHitFromInside() {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: 0.0), direction: Vector(x: 0.0, y: 0.0, z: 1.0))
-        let intersection = sphere.intersectWithRay(ray)
+        let intersection = sphere.intersect(ray: ray)
 
         XCTAssertNotNil(intersection)
         let i = intersection!

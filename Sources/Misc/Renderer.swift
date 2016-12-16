@@ -149,7 +149,7 @@ public struct Renderer {
                        direction: lightDirection)
 
             for object in scene.objects {
-                if let hit = object.intersect(ray: ray) where hit.t < distanceToLight {
+                if let hit = object.intersect(ray: ray) , hit.t < distanceToLight {
                     inShadow = true
                     break
                 }

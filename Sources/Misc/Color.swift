@@ -76,7 +76,7 @@ public extension Color {
         self = color
     }
 
-    private static func clampValue(_ value: Int32) -> UInt8 {
+    fileprivate static func clampValue(_ value: Int32) -> UInt8 {
         if value < 0 {
             return 0
         }

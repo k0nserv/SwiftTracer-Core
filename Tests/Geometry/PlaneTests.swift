@@ -12,12 +12,12 @@ import XCTest
 class PlaneTests: XCTestCase {
     let plane = Plane(position: Vector(x: 0, y: 0, z: 5),
                         normal: Vector(x:0, y:0, z: -1),
-                      material: Material(color: SwiftTracerCore.Color.Black, ambientCoefficient: 0.4, diffuseCoefficient: 0.4))
+                      material: Material(ambientColor: Color.black * 0.4, diffuseColor: Color.black * 0.4, specularColor: Color.black, reflectionCoefficient: 0.0, refractionCoefficient: nil))
 
     func testMiss() {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: 0.0),
                    direction: Vector(x: 0.0, y: 0.0, z: -1.0))
-        let intersection = plane.intersectWithRay(ray)
+        let intersection = plane.intersect(ray: ray)
         XCTAssertNil(intersection)
     }
 
@@ -25,7 +25,7 @@ class PlaneTests: XCTestCase {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: 0.0),
             direction: Vector(x: 0.0, y: 0.0, z: 1.0))
 
-        let intersection = plane.intersectWithRay(ray)
+        let intersection = plane.intersect(ray: ray)
 
         XCTAssertNotNil(intersection)
         let i = intersection!
