@@ -27,7 +27,7 @@ public class Sphere {
 }
 
 extension Sphere : Shape {
-    public func intersect(ray: Ray) -> Intersection? {
+    public func intersecting(ray: Ray) -> Intersection? {
         let V = ray.origin - center
         let a = ray.direction.dot(V)
         let b = -a

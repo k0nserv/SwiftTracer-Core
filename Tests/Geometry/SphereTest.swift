@@ -19,13 +19,13 @@ class SphereTests: XCTestCase {
     func testMiss() {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: -5.0), direction: Vector(x: 1.0, y: 0.0, z: 0.0))
 
-        let intersection = sphere.intersect(ray: ray)
+        let intersection = sphere.intersecting(ray: ray)
         XCTAssertNil(intersection)
     }
 
     func testHit() {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: -5.0), direction: Vector(x: 0.0, y: 0.0, z: 1.0))
-        let intersection = sphere.intersect(ray: ray)
+        let intersection = sphere.intersecting(ray: ray)
 
         XCTAssertNotNil(intersection)
         let i = intersection!
@@ -37,7 +37,7 @@ class SphereTests: XCTestCase {
 
     func testHitFromInside() {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: 0.0), direction: Vector(x: 0.0, y: 0.0, z: 1.0))
-        let intersection = sphere.intersect(ray: ray)
+        let intersection = sphere.intersecting(ray: ray)
 
         XCTAssertNotNil(intersection)
         let i = intersection!

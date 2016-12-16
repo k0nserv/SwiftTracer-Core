@@ -18,11 +18,11 @@ public class Scene {
     }
 
 
-    public func intersect(ray: Ray) -> Intersection? {
+    public func intersecting(ray: Ray) -> Intersection? {
         var closestHit: Intersection?
 
         for object: Shape in objects {
-            if let hit = object.intersect(ray: ray) {
+            if let hit = object.intersecting(ray: ray) {
                 if  let previousHit = closestHit , hit.t < previousHit.t  {
                     closestHit = hit
                 } else if closestHit == nil {

@@ -120,7 +120,7 @@ public struct Renderer {
         }
 
         var result = scene.clearColor
-        let closestHit = scene.intersect(ray: ray)
+        let closestHit = scene.intersecting(ray: ray)
 
         if let hit = closestHit {
             result = shade(atIntersection: hit, originalRay: ray)
@@ -149,7 +149,7 @@ public struct Renderer {
                        direction: lightDirection)
 
             for object in scene.objects {
-                if let hit = object.intersect(ray: ray) , hit.t < distanceToLight {
+                if let hit = object.intersecting(ray: ray) , hit.t < distanceToLight {
                     inShadow = true
                     break
                 }

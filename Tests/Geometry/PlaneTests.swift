@@ -17,7 +17,7 @@ class PlaneTests: XCTestCase {
     func testMiss() {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: 0.0),
                    direction: Vector(x: 0.0, y: 0.0, z: -1.0))
-        let intersection = plane.intersect(ray: ray)
+        let intersection = plane.intersecting(ray: ray)
         XCTAssertNil(intersection)
     }
 
@@ -25,7 +25,7 @@ class PlaneTests: XCTestCase {
         let ray = Ray(origin: Vector(x: 0.0, y: 0.0, z: 0.0),
             direction: Vector(x: 0.0, y: 0.0, z: 1.0))
 
-        let intersection = plane.intersect(ray: ray)
+        let intersection = plane.intersecting(ray: ray)
 
         XCTAssertNotNil(intersection)
         let i = intersection!
